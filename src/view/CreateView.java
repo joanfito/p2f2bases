@@ -9,15 +9,15 @@ import java.awt.*;
 /**
  * Created by joanfito on 20/4/17.
  */
-public class LogView extends JFrame {
+public class CreateView extends JFrame{
 
     private JLabel jlNomUsuari;
     private JTextField jtfNomUsuari;
     private JLabel jlContrasenya;
     private JTextField jtfContrasenya;
-    private JButton jbConnectar;
+    private JButton jbCrear;
 
-    public LogView() {
+    public CreateView() {
         JPanel jpAux = new JPanel(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
 
@@ -47,23 +47,22 @@ public class LogView extends JFrame {
         constraints.gridy = 1;
         jpAux.add(jtfContrasenya, constraints);
 
-        jbConnectar = new JButton("Connectar");
+        jbCrear = new JButton("Crear");
         constraints.gridx = 1;
         constraints.gridy = 2;
         constraints.fill = GridBagConstraints.NONE;
         constraints.anchor = GridBagConstraints.LINE_END;
-        jpAux.add(jbConnectar, constraints);
+        jpAux.add(jbCrear, constraints);
 
         this.getContentPane().add(jpAux);
         this.setSize(new Dimension(500,150));
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        this.setTitle("Base de dades");
-
+        this.setTitle("Creacio d'usuari");
     }
 
     public void linkController(ButtonControl controller) {
-        jbConnectar.addActionListener(controller);
+        jbCrear.addActionListener(controller);
     }
 }
