@@ -14,7 +14,7 @@ public class CreateView extends JFrame{
     private JLabel jlNomUsuari;
     private JTextField jtfNomUsuari;
     private JLabel jlContrasenya;
-    private JTextField jtfContrasenya;
+    private JPasswordField jtfContrasenya;
     private JButton jbCrear;
 
     public CreateView() {
@@ -42,7 +42,7 @@ public class CreateView extends JFrame{
         constraints.fill = GridBagConstraints.HORIZONTAL;
         jpAux.add(jtfNomUsuari, constraints);
 
-        jtfContrasenya = new JTextField();
+        jtfContrasenya = new JPasswordField();
 
         constraints.gridy = 1;
         jpAux.add(jtfContrasenya, constraints);
@@ -64,5 +64,21 @@ public class CreateView extends JFrame{
 
     public void linkController(ButtonControl controller) {
         jbCrear.addActionListener(controller);
+    }
+
+    public String getJtfNomUsuari() {
+        return jtfNomUsuari.getText();
+    }
+
+    public void setJtfNomUsuari(String nomUsuari) {
+        this.jtfNomUsuari.setText(nomUsuari);
+    }
+
+    public String getJtfContrasenya() {
+        return jtfContrasenya.getText();
+    }
+
+    public void setJtfContrasenya(String contrasenya) {
+        this.jtfContrasenya.setText(contrasenya);
     }
 }
