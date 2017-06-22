@@ -16,7 +16,7 @@ import java.sql.SQLException;
  */
 public class ButtonControl implements ActionListener{
 
-    private static final String DB_NAME = "OLTP_fase1";
+    private static final String DB_NAME = "OLTP_fase2";
     private LogView logView;
     private MenuView menuView;
     private CreateView createView;
@@ -130,13 +130,10 @@ public class ButtonControl implements ActionListener{
 
         StringBuilder grantQuery = new StringBuilder();
 
-        grantQuery.append("GRANT ALL ON OLTP_fase1.* TO ");
+        grantQuery.append("GRANT ALL ON *.* TO ");
         grantQuery.append(user);
-        grantQuery.append("@localhost;\nGRANT CREATE USER ON *.* TO ");
-        grantQuery.append(user);
-        grantQuery.append("@localhost");
+        grantQuery.append("@localhost WITH GRANT OPTION ");
 
-        System.out.println("Query: "+ grantQuery.toString());
 
 
         try {
@@ -144,6 +141,7 @@ public class ButtonControl implements ActionListener{
 
                 helper.insertQuery(createQuery.toString());
                 helper.insertQuery(grantQuery.toString());
+                helper.insertQuery("FLUSH PRIVILEGES");
 
                 ok = true;
             }
